@@ -1,0 +1,41 @@
+body {
+  background-color: #282c34;
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.App-header {
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.table-responsive {
+  font-size: 12px;
+}
+
+.table {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 50px;
+  width: auto;
+  color: white;
+}
+.table > tbody > tr {
+  padding: 0.5rem 1rem;
+}
+.table > tbody > tr:nth-child(odd) {
+  color: black;
+  background: #efefef;
+}
+
+.ext-table {
+  color: white;
+  margin-top: 50px;
+}
