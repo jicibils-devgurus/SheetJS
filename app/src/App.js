@@ -16,6 +16,9 @@ function App() {
 
   const handleFile = (file) => {
     setExelFile(file);
+  };
+
+  const handleFileInBrowser = () => {
     const reader = new FileReader();
     const rABS = !!reader.readAsBinaryString;
     reader.onload = (e) => {
@@ -32,8 +35,8 @@ function App() {
       setData(data);
       setCols(make_cols(ws["!ref"]));
     };
-    if (rABS) reader.readAsBinaryString(file);
-    else reader.readAsArrayBuffer(file);
+    if (rABS) reader.readAsBinaryString(exelFile);
+    else reader.readAsArrayBuffer(exelFile);
   };
 
   const exportFile = () => {
@@ -90,6 +93,13 @@ function App() {
           <div>
             <div>
               <button
+                disabled={!exelFile}
+                className="btn btn-success"
+                onClick={handleFileInBrowser}
+              >
+                Handle File In Browser
+              </button>{" "}
+              <button
                 disabled={!data.length}
                 className="btn btn-success"
                 onClick={exportFile}
@@ -132,7 +142,7 @@ function App() {
                 convert to HTML
               </button>{" "}
               <button
-                disabled={!data.length}
+                disabled={!exelFile}
                 className="btn btn-success"
                 onClick={sendWsToNode}
               >
